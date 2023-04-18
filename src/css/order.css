@@ -1,0 +1,5 @@
+.order{
+    max-height: calc(100vh - 64px); /* subtract any header/footer heights */
+    overflow-y: auto;
+    margin: 30px;
+}

@@ -1,0 +1,35 @@
+.box{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 350px;
+    height: 500px;
+    border-radius: 15px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; 
+    
+}
+
+
+
+
+form :has(input:invalid) input{
+    border: 1px solid red;
+}
+
+.form > input {
+    width: 250px;
+}

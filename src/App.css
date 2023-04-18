@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: rgb(233, 240, 240);
+  font-family: 'Poppins', sans-serif;
+}
+.App{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Mainbox{
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Sidebar{
+  padding: 40px 10px;
+  background-color: rgb(21, 22, 83);
+  color: white;
+  flex: 1.05;
+  border-radius: 0px 35px 35px 0px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100%;
+  text-align: center;
+  
+}
+
+.Rightside{
+  
   color: white;
+  flex: 8;
+  
+  
 }
 
-.App-link {
-  color: #61dafb;
+.Bus{
+  width: 70px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.Content > p{
+  font-weight: bold;
 }
+
+.choices:active{
+  background-color: white;
+  color: rgb(21, 22, 83);
+}
+
+.choice{
+  font-size: 12px;
+  padding: 17px 0px;
+  gap: 7px;
+  
+}
+
+
+
+.top{
+  margin-top: -12px;
+}
+
+.top > p{
+  margin: -15px;
+}
+
+.Rightcontent{
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  color: black;
+}
+
+
+
+
