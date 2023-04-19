@@ -57,7 +57,7 @@ const Dashboard = () => {
         <div>
           <p className='text-black'>Upcoming itinearies</p>
           {itinearies.map((itinerary)=>(
-            <ItineraryCard reference={itinerary.bus.reference} drivername={itinerary.driver.name} arrived={itinerary.arrived}/>
+            <ItineraryCard id={itinerary.id} reference={itinerary.bus.reference} drivername={itinerary.driver.name} arrived={itinerary.arrived}/>
           ))}
         </div> 
         </div>
