@@ -4,6 +4,7 @@ const ItineraryCard = (props) => {
   return (
     <div className='flex items-center gap-4 mt-2'>
             <img className='w-6 ml-2' src={Bus} alt="Bus"/>
+            <p className='text-black'>jwic</p>
             <p className='text-black text-sm'>{props.reference}</p>
             <p className='text-black text-sm'>{props.drivername}</p>
             <div className='flex items-center'>
