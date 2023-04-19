@@ -1,0 +1,12 @@
+.itemsidbar:hover{
+    background-color:#ffd831;
+    color: black;
+    
+    
+    
+}
+
+.itemsidbar{
+    color:white;
+    border-radius: 5px;
+}

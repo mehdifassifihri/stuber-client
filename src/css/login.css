@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/Users/mehdi/react-test/src/assets/image.jpg');
+    background-image: url('../assets/image.jpg');
     background-size: cover;
     height: 100vh;
 }

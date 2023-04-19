@@ -18,6 +18,13 @@ import Setitinerar from './components/Setitinerar';
 import Additinerar from './components/Additinerar';
 
 
+
+import Signup from './signup/Singup';
+import Sidbar from "./schoolmanagement/Sidbar";
+import AddAscusualforaschool from "./schoolmanagement/scusual/AddAscusualforaschool";
+import StudentForm from "./schoolmanagement/student/StudentForm";
+import Menu from "./schoolmanagement/student/menuofstudent/Menu";
+import DashboardStudent from "./mapdashboard/DashboardStudent";
 function App() {
   return (
       <BrowserRouter>
@@ -44,10 +51,18 @@ function App() {
         <Route path='itinerar' element={<Itinearar/>}/>
         <Route path='parents' element={<Parents/>}/>
       </Route>
+
+      <Route path='/singup' element={<Signup/>} />
+      <Route path='/studentdashboard' element={<Sidbar/>} >
+
+        <Route path='scusual' element={<AddAscusualforaschool/>} />
+        <Route path='addstudents' element={<StudentForm/>} />
+        <Route path='dashboardstudent' element={<DashboardStudent/>} />
+        <Route path='students' element={<Menu/>} />
       
-        
+      </Route>
       
-      
+    
         
         
       </Routes>

@@ -1,0 +1,22 @@
+.animate{
+    animation: changeopacity 2s forwards;
+}
+.animatecolor{
+    animation: changecolor 3s forwards;
+}
+
+@keyframes changeopacity {
+    0% {
+     opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }}
+
+@keyframes changecolor {
+        0% {
+         color: white;
+        }
+        100% {
+        color:yellow;
+        }}
