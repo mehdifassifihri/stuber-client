@@ -5,7 +5,7 @@ const ItineraryCard = (props) => {
     <div className='flex items-center gap-4 mt-2'>
             <img className='w-6 ml-2' src={Bus} alt="Bus"/>
             <p className='text-black'>{props.id}</p>
-            <p className='text-black text-sm'>{props.reference}</p>
+            <p className='text-black text-sm font-bold'>{props.reference}</p>
             <p className='text-black text-sm'>{props.drivername}</p>
             <div className='flex items-center'>
             <div className={`${props.arrived ? 'h-4 w-4 rounded-full bg-green-500' : 'bg-orange-500 h-4 w-4 rounded-full'}`}></div>
