@@ -38,29 +38,23 @@ const Dashboard = () => {
         
         
         <p className='text-black font-extrabold text-lg py-5'>Dashboard</p>
-        <div className='dashcontent grid grid-cols-2 gap-2'>
-        <div className='bg-white grid grid-cols-2 gap-2'>
-              <div className='text-black bg-zinc-100 h-28 rounded-2xl p-3 flex justify-between'>
-              <p className='text-black h-32 font-semibold'>Drivers</p>
-              <span className='text-black'>{driverCount}</span>
-              </div>
-              <div className='text-black bg-zinc-100 h-28 rounded-2xl p-3 flex justify-between'>
-              <p className='text-black h-32 font-semibold'>Bus</p>
-              <span className='text-black'>{busCount}</span>
-              </div>
-              
+        <div className='bg-gray-200 h-full'>
+          <div className='flex'>
+          <div className='bg-red-500 h-32 w-56 rounded-lg'>
+            <p>dwj</p>
+          </div>
+          <div className='bg-red-500 h-32 w-56 rounded-lg'>
+            <p>dwj</p>
+          </div>
+          <div className='bg-green-500 h-32 w-full rounded-lg'>
+            <p>dwj</p>
+          </div>
         </div>
-        <div className='text-black bg-zinc-100 h-28 rounded-2xl p-3'>
-              <p className='text-black h-32 font-semibold'>Reclamation</p>
+        <div className='bg-red-500'>
+          <p className=''>jwid</p>
         </div>
-        
-        <div>
-          <p className='text-black'>Upcoming itinearies</p>
-          {itinearies.map((itinerary)=>(
-            <ItineraryCard id={itinerary.id} reference={itinerary.bus.reference} drivername={itinerary.driver.name} arrived={itinerary.arrived}/>
-          ))}
-        </div> 
-        </div>
+          </div>
+          
         
     </div>   
   )
