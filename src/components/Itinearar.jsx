@@ -132,10 +132,10 @@ const Itinearar = () => {
           
         </div>
         
-        <div className='right flex flex-col justify-center '>
+        <div className='right flex flex-col  '>
           <div>
-            <p className='text-black'>Start time : 12:09:10</p>
-            <div className='flex justify-between'>
+            <p className='text-black bg-zinc-100 inline-block rounded-full text-sm px-4 py-2'>Start time : 12:09:10</p>
+            <div className='flex justify-between py-4'>
                <p className='text-black bg-zinc-200 text-xs rounded-3xl flex justify-center items-center px-3 font-semibold'>{itinerary.bus.reference}</p>
                <span className='text-black text-xs bg-zinc-100 rounded-2xl px-3 py-1'>{itinerary.students.length}/20</span>
             </div>
@@ -143,14 +143,14 @@ const Itinearar = () => {
           
           <div className='end flex items-center'>
           <img className='w-5 h-5' src={Marqueur} alt="Bus"/>
-          <p className='text-black text-xs'>{itinerary.end.description}</p>
+          <p className='text-black text-xs ml-1'>{itinerary.end.description}</p>
           </div>
-          <div className='w-1 h-24 bg-gray-300 rounded-md ml-2'>
+          <div className='w-1 h-24 bg-gray-300 rounded-md ml-2 my-1'>
 
           </div>
           <div className='start flex items-center'>
           <div className='h-4 w-4 bg-blue-900 rounded-full'></div>
-          <p className='text-black text-xs'>{itinerary.start.description}</p>
+          <p className='text-black text-xs ml-2'>{itinerary.start.description}</p>
           </div>
         </div>
     </div>
