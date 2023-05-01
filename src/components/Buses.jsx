@@ -122,7 +122,7 @@ const handleDelete = (id) => {
   <input placeholder='Capacite' onChange={handleCapaciteChange} className='bg-zinc-100 rounded-3xl placeholder:px-3 focus:outline-none focus:placeholder-transparent text-black' type="text"/>
   <button onClick={handleSubmit} className='w-24 rounded-full h-full'>ADD BUS</button>
   </form>
-  <Table className='mt-6' dataSource={filteredData} pagination={{ pageSize: 9,}}>
+  <Table className='mt-6' dataSource={filteredData} pagination={{ pageSize: 8,}}>
     
       <Column title="Id" dataIndex="id" key="firstName" />
       

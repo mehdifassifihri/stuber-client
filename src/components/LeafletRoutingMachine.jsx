@@ -8,6 +8,7 @@ const LeafletRoutingMachine = ({itinerary}) => {
     const map = useMap();
     
     useEffect(() => {
+        
         L.Routing.control({
             waypoints: [
               L.latLng(itinerary.start.latitude, itinerary.start.longitude),
@@ -17,7 +18,7 @@ const LeafletRoutingMachine = ({itinerary}) => {
             ],
             optimizeWaypoints: true,
           }).addTo(map);
-    }, [])
+    }, [[itinerary, map]])
     
     
   return null;

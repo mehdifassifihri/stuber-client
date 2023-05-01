@@ -55,7 +55,12 @@ const Content = () => {
   //
 
   //add itnerary
-  
+  const [selectedBus, setSelectedBus] = useState(null);
+
+  const handleChangeBus = (value) => {
+    setSelectedBus(value);
+    console.log(selectedBus)
+  };
 
   function createNewTrip() {
     const requestBody = {
@@ -138,8 +143,8 @@ const Content = () => {
       style={{
         width: 150,
       }}
-      onChange={handleChange}
       options={busOptions}
+      onChange={handleChangeBus}
     />
         </div>
 

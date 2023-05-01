@@ -1,10 +1,21 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Ordercart from './Ordercart'
 import Notification from '../assets/notification.png'
 import '../css/order.css'
+import axios from 'axios';
 
 const Order = () => {
-  const list = [['sdcdsc','sdcdsc'],['qlkqw','welwdkl'],['wedlk','qwsaa'],['wedlk','qwsaa'],['wedlk','qwsaa'],['wedlk','qwsaa']]
+  const [orders, setOrders] = useState([]);
+  
+  useEffect(() => {
+    axios.get('http://localhost:8080/Order')
+      .then(response => {
+        setOrders(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
   
   return (
     <div className='order h-full'>
@@ -20,8 +31,8 @@ const Order = () => {
         </div>
         <div className=''>
         
-        {list.map((e)=>(
-                <Ordercart key={list.indexOf(e)} parent={e[0]} child={e[1]}/>
+        {orders.map((e)=>(
+                <Ordercart key={e.id} parent={e.parent.name} child={e.student.name}/>
             ))}
         
             

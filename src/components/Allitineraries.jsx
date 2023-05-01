@@ -13,7 +13,7 @@ const Allitineraries = () => {
     
   const [itineraries, setItineraries] = useState([]);
   const arrivedItineraries = itineraries.filter(itinerary => itinerary.arrived === true);
-
+  const nonarrived = itineraries.filter(itinerary => itinerary.arrived === false);
   
   
  
@@ -44,17 +44,20 @@ const Allitineraries = () => {
             SET ITINERARY
         </button>
         </div>
-        <div className='grid grid-cols-3 mt-5 gap-y-10'>
-        {itineraries.map((e)=>(
-            <ItinerCard drivername={e.driver.name} reference={e.bus.reference} id={e.id}/>
+        <div className='grid grid-cols-3 gap-y-10'>
+        {nonarrived.map((e)=>(
+            <ItinerCard arrived={e.arrived} drivername={e.driver.name} reference={e.bus.reference} id={e.id}/>
         ))}
         </div>
         <div>
-        <h1 className='font-bold text-black'>Done Itineraries</h1>
+        <h1 className='font-bold text-black py-5'>Done Itineraries</h1>
+        <div className='grid grid-cols-3 gap-y-6'>
         {arrivedItineraries.map((e)=>(
-          <h1 className='text-black'>{e.id}</h1>
+          <ItinerCard arrived={e.arrived} drivername={e.driver.name} reference={e.bus.reference} id={e.id}/>
 
         ))}
+        </div>
+        
         </div>
         
      
