@@ -25,12 +25,12 @@ const Ordercart = (props) => {
   }, []); 
 
   const handleDriverChange = (event) => {
-    setSelectedDriver(event.target.value);
+    setSelectedDriver(JSON.parse(event.target.value));
     console.log(selectedDriver)
   };
 
   const handleBusChange = (event) => {
-    setSelectedBus(event.target.value);
+    setSelectedBus(JSON.parse(event.target.value));
     console.log(selectedBus)
   };
 
@@ -40,13 +40,14 @@ const Ordercart = (props) => {
         "id":props.orderid
       },
       "driver":{
-        "id":1
+        "id":selectedDriver.id
       },
       "bus":{
-        "id":1
-      }
+        "id":selectedBus.id
+      },
+      
     }
-    axios.post('http://localhost:8080/Order',body)
+    axios.post('http://localhost:8080/Indrive',body)
   }
   return (
     <div className='w-full bg-white flex justify-between items-center p-6 rounded-lg mt-4 shadow-md'>
@@ -58,7 +59,7 @@ const Ordercart = (props) => {
             <label className='mr-3'>Driver</label>
             <select onChange={handleDriverChange} className='bg-gray-200 w-40 rounded-lg px-3 py-2'>
                 {drivers.map((driver)=>(
-                    <option key={driver.id}>{driver.name}</option>
+                    <option value={JSON.stringify(driver)} key={driver.id}>{driver.name}</option>
                 ))}
             </select>
         </div>
@@ -66,13 +67,13 @@ const Ordercart = (props) => {
             <label className='mr-3'>Bus</label>
             <select onChange={handleBusChange} className='bg-gray-200 w-40 rounded-lg px-3 py-2'>
                 {buses.map((bus)=>(
-                    <option>{bus.reference}</option>
+                    <option value={JSON.stringify(bus)} key={bus.id}>{bus.reference}</option>
                 ))}
             </select>
         </div>
         <div className='text-black'>
             <div className='flex items-center'>
-                <button className='h-5 w-5 bg-green-600 rounded-full mr-2'></button>
+                <button onClick={handlePress} className='h-5 w-5 bg-green-600 rounded-full mr-2'></button>
                 <span className='text-green-600'>Accept</span>
             </div>
             <div className='flex items-center'>

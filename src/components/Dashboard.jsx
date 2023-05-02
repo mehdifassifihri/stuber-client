@@ -38,22 +38,33 @@ const Dashboard = () => {
         
         
         <p className='text-black font-extrabold text-lg py-5'>Dashboard</p>
-        <div className='bg-gray-200 h-full'>
-          <div className='flex'>
-          <div className='bg-red-500 h-32 w-56 rounded-lg'>
-            <p>dwj</p>
+        <div className='gap-6 grid grid-cols-12'>
+          <div className='col-span-7 '>
+            <div className='flex flex-col gap-4'>
+            <div className='flex gap-4'>
+              <div className='w-1/2 h-32  rounded-xl shadow-lg p-4 relative'>
+                <p className='text-black text-lg'>Drivers</p>
+                <span className='absolute bottom-4 right-4 text-black text-lg'>5</span>
+              </div>
+              <div className='w-1/2 h-32  rounded-xl shadow-lg p-4 relative'>
+                <p className='text-black text-lg'>Buses</p>
+                <span className='absolute bottom-4 right-4 text-black text-lg'>5</span>
+              </div>
+            </div>
+            <div className='h-56  rounded-xl shadow-lg p-4'>
+              <p className='text-black'>mjec</p>
+            </div>
+            </div>
           </div>
-          <div className='bg-red-500 h-32 w-56 rounded-lg'>
-            <p>dwj</p>
+          <div className='col-span-5  rounded-xl shadow-lg p-4'>
+            <p className='text-black'>Reclamation</p>
           </div>
-          <div className='bg-green-500 h-32 w-full rounded-lg'>
-            <p>dwj</p>
-          </div>
+          
+        
         </div>
-        <div className='bg-red-500'>
-          <p className=''>jwid</p>
+        <div className='mt-5'>
+          <p className='text-black'>Bus Activities</p>
         </div>
-          </div>
           
         
     </div>   
