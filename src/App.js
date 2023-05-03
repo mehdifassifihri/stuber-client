@@ -16,6 +16,7 @@ import SchoolOwner from './layouts/SchoolOwner';
 import Allitineraries from './components/Allitineraries';
 import Setitinerar from './components/Setitinerar';
 import Additinerar from './components/Additinerar';
+import Abc from './components/Abc';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
         <Route path='drivers' element={<Drivers/>}/>
         <Route path='buses' element={<Buses/>}/>
         
-        <Route path='test' element={<Setitinerar/>}/>
+        <Route path='test' element={<Abc/>}/>
         
       </Route>
 

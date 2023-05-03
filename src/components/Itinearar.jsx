@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 //import L from 'leaflet';
-import Studentmarker from '../assets/location-pin.png'
+import Studentmarker from '../assets/child.png'
 import Parkingmarker from '../assets/parking.png'
 import Schoolmarker from '../assets/schoolbuild.png'
 

@@ -17,6 +17,7 @@
     "react-leaflet-routing-machine": "^0.0.5",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-spring": "^9.7.1",
     "scrollable-component": "^1.2.1",
     "web-vitals": "^2.1.4"
   },

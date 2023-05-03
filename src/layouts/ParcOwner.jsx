@@ -60,7 +60,7 @@ const ParcOwner = () => {
       <header className='Sidebar'>
           <div className='top'>
           <img className='Bus' src={BusDriver} alt="Bus"/>
-          <p>Stuber</p>
+          <p className='font-bold'>STUBER</p>
           </div>
           <div className='middle'>
             {choices.map((e)=>(
