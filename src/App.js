@@ -17,6 +17,8 @@ import Allitineraries from './components/Allitineraries';
 import Setitinerar from './components/Setitinerar';
 import Additinerar from './components/Additinerar';
 import Abc from './components/Abc';
+import Parentsmanagement from './components/Parentsmanagement';
+import Studentsmanagement from './components/Studentsmanagement';
 
 
 function App() {
@@ -42,8 +44,8 @@ function App() {
 
       <Route path='/school' element={<SchoolOwner/>}>
         <Route index element={<Dashboard/>}/>
-        <Route path='itinerar' element={<Itinearar/>}/>
-        <Route path='parents' element={<Parents/>}/>
+        <Route path='students' element={<Studentsmanagement/>}/>
+        <Route path='parents' element={<Parentsmanagement/>}/>
       </Route>
       
         
