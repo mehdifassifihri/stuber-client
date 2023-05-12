@@ -3,9 +3,11 @@ import "../css/Itinerarycard.css";
 import Itinerary from "../assets/itinerar.png";
 import { Space, Spin } from "antd";
 import ItinerCard from "./ItinerCard";
+import Modalr from "react-modal";
 
 const Allitineraries = () => {
   const [itineraries, setItineraries] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const arrivedItineraries = itineraries.filter(
     (itinerary) => itinerary.arrived === true
   );
@@ -19,7 +21,10 @@ const Allitineraries = () => {
       .then((data) => setItineraries(data))
       .catch((error) => console.error(error));
   }, []);
-
+  
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   if (itineraries.length <= 0) {
     return (
       <div className="flex justify-center items-center h-full">
@@ -30,12 +35,15 @@ const Allitineraries = () => {
   }
   return (
     <div className="m-8">
+      <Modalr isOpen={isModalOpen} onRequestClose={handleModalToggle}>
+        <p>deijd</p>
+      </Modalr>
       <div className="flex justify-between items-center">
         <div className="flex">
           <p className=" text-black font-normal">Today's</p>
           <p className="text-black font-extrabold ml-2">Itineraries</p>
         </div>
-        <button className="w-32 flex justify-center items-center">
+        <button onClick={handleModalToggle} className="w-32 flex justify-center items-center">
           <img className="w-5 mr-2" src={Itinerary} alt="Bus" />
           SET ITINERARY
         </button>

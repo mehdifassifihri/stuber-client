@@ -10,6 +10,10 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios";
 
 import { Space, Table, Tag, message, Popconfirm, Modal } from "antd";
+import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
+import L from 'leaflet';
+import 'leaflet-control-geocoder';
+import GeocoderControl from "../config/GeocoderControl";
 
 const { Column, ColumnGroup } = Table;
 const Parentsmanagement = () => {
@@ -144,6 +148,7 @@ const Parentsmanagement = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <LocationMarker />
+              <GeocoderControl/>
               <Marker position={position}></Marker>
             </MapContainer>
           </div>

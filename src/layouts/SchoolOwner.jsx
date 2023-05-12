@@ -3,10 +3,32 @@ import '../App.css'
 import { NavLink,Outlet } from 'react-router-dom'
 import BusDriver from '../assets/school-bus.png';
 import Logout from '../assets/logout.png';
+import Family from '../assets/family.png';
+import Dashboard from '../assets/dash.png';
+import Student from '../assets/student.png';
 import Categorie from '../components/Categorie';
 
 const SchoolOwner = () => {
-   const buttons = ["Dashboard","Manage Parents","Manage Students"]
+   
+   const choices = [{
+    name : "Dashboard",
+    image : Dashboard,
+    isActivated : false,
+    link : "/school"
+  },
+  {
+    name : "Manage Parents",
+    image : Family,
+    isActivated : false,
+    link : "/school/parents"
+  },
+  {
+    name : "Manage Students",
+    image : Student,
+    isActivated : false,
+    link : "/school/students"
+  },
+]
   return (
     <div className="App">
         
@@ -17,8 +39,8 @@ const SchoolOwner = () => {
           <p>Stuber</p>
           </div>
           <div className='middle'>
-            {buttons.map((e)=>(
-                <Categorie name={e} image={Logout} link="/Itinerar"/>
+            {choices.map((e)=>(
+                <Categorie name={e.name} image={e.image} link={e.link}/>
             ))}
           </div>
           <div className='bottom flex flex-col items-center'>
