@@ -15,7 +15,7 @@ import Categorie from '../components/Categorie';
 import '../App.css'
 
 const ParcOwner = () => {
-  const buttons = ["Dashboard","Manage Itinerars","Manage Drivers","Manage buses","Manage Memberships"]
+  
   const choices = [{
     name : "Dashboard",
     image : Dashlogo,

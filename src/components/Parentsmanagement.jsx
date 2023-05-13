@@ -53,6 +53,11 @@ const Parentsmanagement = () => {
       .catch((error) => {
         console.error(error);
       });
+      setName("")
+      setCin("")
+      setAddressdesc("")
+      setUsername("")
+      setPassword("")
   };
 
   const LocationMarker = () => {
@@ -92,6 +97,7 @@ const Parentsmanagement = () => {
         <form className="flex flex-col gap-2">
           <div className="flex">
             <input
+              value={name}
               placeholder="Name"
               className="bg-zinc-100 rounded-xl text-black outline-none"
               type="text"
@@ -112,6 +118,7 @@ const Parentsmanagement = () => {
           </div>
           <div className="flex">
             <input
+              value={password}
               placeholder="Password"
               className="bg-zinc-100 rounded-xl text-black outline-none"
               type="text"
@@ -120,6 +127,7 @@ const Parentsmanagement = () => {
               }}
             />
             <input
+              value={cin}
               placeholder="CIN"
               className="bg-zinc-100 rounded-xl text-black outline-none"
               type="text"
@@ -134,6 +142,7 @@ const Parentsmanagement = () => {
         <div className="flex flex-col items-center">
           <p className="text-black font-semibold">SPECIFY THE PARENT ADDRESS</p>
           <input
+          value={address}
             onChange={(e) => {
               setAddressdesc(e.target.value);
             }}
@@ -142,7 +151,7 @@ const Parentsmanagement = () => {
             className="bg-zinc-100 outline-none text-black my-1"
           />
           <div className="w-96 h-44">
-            <MapContainer center={position} zoom={15}>
+            <MapContainer center={position} zoom={12}>
               <TileLayer
                 attribution="&copy; OpenStreetMap contributors"
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
