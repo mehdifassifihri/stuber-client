@@ -1,11 +1,19 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import Modalr from "react-modal";
-import { Space, Table, Tag, message, Popconfirm, Modal ,Divider, Radio} from "antd";
+import {
+  Space,
+  Table,
+  Tag,
+  message,
+  Popconfirm,
+  Modal,
+  Divider,
+  Radio,
+} from "antd";
 import Parent from "../assets/parent.png";
 import Done from "../assets/d.png";
 const { Column, ColumnGroup } = Table;
-
 
 const Studentsmanagement = () => {
   const [name, setName] = useState("");
@@ -14,54 +22,54 @@ const Studentsmanagement = () => {
   const [students, setStudents] = useState([]);
   const [parents, setParents] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectionType, setSelectionType] = useState('checkbox');
+  const [selectionType, setSelectionType] = useState("checkbox");
+
+  const handleSelectionChange = (selectedRowKeys, selectedRows) => {
+    setParent(selectedRows);
+    console.log(selectedParent);
+  };
 
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      console.log(
+        `selectedRowKeys: ${selectedRowKeys}`,
+        "selectedRows: ",
+        selectedRows
+      );
     },
     getCheckboxProps: (record) => ({
-      disabled: record.name === 'Disabled User',
+      disabled: record.name === "Disabled User",
       // Column configuration not to be checked
       name: record.name,
     }),
   };
 
-  const handleSubmit = ()=>{
-    if (selectedParent != null){
-      const body = {
-        "name":name,
-        "age":age,
-        "parent":{
-          "id":selectedParent.id
-        }
-      }
-      axios.post("http://localhost:8080/Student",body)
-    }
-  }
+  const handleSubmit = () => {
+    const parentid = selectedParent.id;
+    const body = {
+      name: name,
+      age: age,
+      parent: {
+        id: selectedParent[0].id,
+      },
+    };
+
+    const url = "http://localhost:8080/Student";
+    axios.post(url,body)
+    console.log(body);
+  };
 
   useEffect(() => {
-    const fetchStudents = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/Student");
-        setStudents(response.data);
-      } catch (error) {
-        console.error("Error fetching parents:", error);
-      }
-    };
+    fetch("http://localhost:8080/Student")
+      .then((response) => response.json())
+      .then((data) => setStudents(data))
+      .catch((error) => console.error(error));
 
-    const fetchParents = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/User/Parent");
-        setParents(response.data);
-      } catch (error) {
-        console.error("Error fetching parents:", error);
-      }
-    };
-
-    fetchStudents();
-    fetchParents();
-  });
+    fetch("http://localhost:8080/User/Parent")
+      .then((response) => response.json())
+      .then((data) => setParents(data))
+      .catch((error) => console.error(error));
+  }, []);
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
@@ -69,21 +77,21 @@ const Studentsmanagement = () => {
 
   const columns = [
     {
-      title: 'Id',
-      dataIndex: 'id',
+      title: "Id",
+      dataIndex: "id",
       render: (text) => <a>{text}</a>,
     },
     {
-      title: 'Name',
-      dataIndex: 'name',
+      title: "Name",
+      dataIndex: "name",
     },
     {
-      title: 'Username',
-      dataIndex: 'username',
+      title: "Username",
+      dataIndex: "username",
     },
     {
-      title: 'CIN',
-      dataIndex: 'cin',
+      title: "CIN",
+      dataIndex: "cin",
     },
   ];
 
@@ -107,15 +115,21 @@ const Studentsmanagement = () => {
               placeholder="Name"
               className="bg-zinc-100 rounded-xl text-black outline-none"
               type="text"
-              onChange={(e)=>{setName(e.target.value)}}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
             />
             <input
               placeholder="Age"
               className="bg-zinc-100 rounded-xl text-black outline-none"
               type="text"
-              onChange={(e)=>{setAge(e.target.value)}}
+              onChange={(e) => {
+                setAge(e.target.value);
+              }}
             />
-            <button className="rounded-xl">ADD</button>
+            <button onClick={handleSubmit} className="rounded-xl">
+              ADD
+            </button>
           </div>
         </div>
       </div>
@@ -130,13 +144,16 @@ const Studentsmanagement = () => {
         <Column title="Age" dataIndex="age" key="username" />
       </Table>
 
-
       <Modalr isOpen={isModalOpen} onRequestClose={handleModalToggle}>
         <div className="flex justify-between items-center">
-        <h1>SELECT THE PARENT</h1>
-        <input className="bg-zinc-100 rounded-full px-6 outline-none" placeholder="Search" type='text'/>
+          <h1>SELECT THE PARENT</h1>
+          <input
+            className="bg-zinc-100 rounded-full px-6 outline-none"
+            placeholder="Search"
+            type="text"
+          />
         </div>
-        
+
         <Radio.Group
           onChange={({ target: { value } }) => {
             setSelectionType(value);
@@ -153,10 +170,12 @@ const Studentsmanagement = () => {
           rowSelection={{
             type: selectionType,
             ...rowSelection,
+            onChange: handleSelectionChange,
           }}
           columns={columns}
           dataSource={parents}
           pagination={{ pageSize: 7 }}
+          rowKey="id"
         />
       </Modalr>
     </div>

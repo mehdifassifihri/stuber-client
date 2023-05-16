@@ -8,18 +8,23 @@ const LeafletRoutingMachine = ({ itinerary }) => {
   const map = useMap();
 
   useEffect(() => {
+    
     L.Routing.control({
       waypoints: [
-        L.latLng(itinerary.start.latitude, itinerary.start.longitude),
+        L.latLng(itinerary.start.latitude, itinerary.start.longitude, {
+          
+        }),
         ...itinerary.students.map((student) =>
           L.latLng(
             student.parent.adress.latitude,
-            student.parent.adress.longitude
+            student.parent.adress.longitude,
+            
           )
         ),
         L.latLng(itinerary.end.latitude, itinerary.end.longitude),
       ],
       optimizeWaypoints: true,
+      
     }).addTo(map);
   }, [[itinerary, map]]);
 
