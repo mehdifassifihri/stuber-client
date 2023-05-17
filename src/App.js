@@ -19,6 +19,7 @@ import Additinerar from './components/Additinerar';
 import Abc from './components/Abc';
 import Parentsmanagement from './components/Parentsmanagement';
 import Studentsmanagement from './components/Studentsmanagement';
+import Test from './components/Test';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       
       <Route path='/login' element={<Login/>}/>
       <Route path='/Register' element={<Register/>}/>
+      <Route path='/qqq' element={<Test/>}/>
       
       
       <Route path='/parcowner' element={<ParcOwner/>}>

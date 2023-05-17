@@ -124,13 +124,6 @@ const Itinearar = () => {
     </div>
   );
 };
-const DefaultIcon = L.icon({
-  iconUrl: Studentmarker,
 
-  iconSize: [25, 25],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-});
-L.Marker.prototype.options.icon = DefaultIcon;
 
 export default Itinearar;

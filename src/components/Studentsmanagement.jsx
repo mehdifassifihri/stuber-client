@@ -57,6 +57,9 @@ const Studentsmanagement = () => {
     const url = "http://localhost:8080/Student";
     axios.post(url,body)
     console.log(body);
+    setAge("")
+    setName("")
+    
   };
 
   useEffect(() => {

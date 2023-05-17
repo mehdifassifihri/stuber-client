@@ -75,7 +75,8 @@ const Allitineraries = () => {
     console.log(selectedSchool);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     const requestBody = {
       start: {
         description: "Parc",
@@ -83,7 +84,7 @@ const Allitineraries = () => {
         longitude: -7.998871,
       },
       end: {
-        description: "ls",
+        description: "EMSI",
         latitude: 31.631058,
         longitude: -8.012827,
       },
@@ -140,14 +141,7 @@ const Allitineraries = () => {
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
-  if (itineraries.length <= 0) {
-    return (
-      <div className="flex justify-center items-center h-full">
-        <Space size="middle"></Space>
-        <Spin size="large" />
-      </div>
-    );
-  }
+  
   return (
     <div className="m-6">
       <div className="flex items-center justify-between px-44 py-4 ">
@@ -163,6 +157,7 @@ const Allitineraries = () => {
                 <div>
                   <p className="text-gray-300 text-sm">Select Driver</p>
                   <select
+                  
                     onChange={handleDriver}
                     className="bg-zinc-100 text-sm px-4 py-2 rounded-lg mt-1 outline-none"
                   >
@@ -174,8 +169,9 @@ const Allitineraries = () => {
                   </select>
                 </div>
                 <div>
-                  <p className="text-gray-300 text-sm">Select Driver</p>
+                  <p className="text-gray-300 text-sm">Select Bus</p>
                   <select
+                  
                     onChange={handleBus}
                     className="bg-zinc-100 text-sm px-4 py-2 rounded-lg mt-1 outline-none"
                   >
@@ -187,8 +183,9 @@ const Allitineraries = () => {
                   </select>
                 </div>
                 <div>
-                  <p className="text-gray-300 text-sm">Select Driver</p>
+                  <p className="text-gray-300 text-sm">Select School</p>
                   <select
+                  
                     onChange={handleSchool}
                     className="bg-zinc-100 text-sm px-4 py-2 rounded-lg mt-1 outline-none"
                   >

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { MapContainer, TileLayer ,Marker,Popup} from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
+import L from "leaflet";
+import locationicon from '../assets/location-pin.png'
 
 const Ordercart = (props) => {
   const [drivers, setDrivers] = useState([]);
@@ -38,6 +40,14 @@ const Ordercart = (props) => {
     setSelectedBus(JSON.parse(event.target.value));
     console.log(selectedBus);
   };
+
+  const location = L.icon({
+    iconUrl: locationicon,
+  
+    iconSize: [25, 25],
+    iconAnchor: [10, 41],
+    popupAnchor: [2, -40],
+  });
 
   const handlePress = () => {
     const body = {
@@ -105,7 +115,7 @@ const Ordercart = (props) => {
             attribution="&copy; OpenStreetMap contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[props.latitude, props.longitude]} >
+          <Marker icon={location}  position={[props.latitude, props.longitude]} >
      
          </Marker>
         </MapContainer>

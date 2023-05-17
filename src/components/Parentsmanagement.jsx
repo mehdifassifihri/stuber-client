@@ -10,10 +10,11 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios";
 
 import { Space, Table, Tag, message, Popconfirm, Modal } from "antd";
-import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
-import L from 'leaflet';
-import 'leaflet-control-geocoder';
+import "leaflet-control-geocoder/dist/Control.Geocoder.css";
+import L from "leaflet";
+import "leaflet-control-geocoder";
 import GeocoderControl from "../config/GeocoderControl";
+import Location from '../assets/location-pin.png'
 
 const { Column, ColumnGroup } = Table;
 const Parentsmanagement = () => {
@@ -25,6 +26,14 @@ const Parentsmanagement = () => {
   const [address, setAddressdesc] = useState("");
   const [position, setPosition] = useState([31.636521, -7.955325]);
   const [parents, setParents] = useState([]);
+
+  const locationicon = L.icon({
+    iconUrl: Location,
+
+    iconSize: [25, 25],
+    iconAnchor: [10, 41],
+    popupAnchor: [2, -40],
+  });
 
   const handleUsername = () => {
     const email = (usernameRef.current.value = name + cin + "@stuber.com");
@@ -53,11 +62,11 @@ const Parentsmanagement = () => {
       .catch((error) => {
         console.error(error);
       });
-      setName("")
-      setCin("")
-      setAddressdesc("")
-      setUsername("")
-      setPassword("")
+    setName("");
+    setCin("");
+    setAddressdesc("");
+    setUsername("");
+    setPassword("");
   };
 
   const LocationMarker = () => {
@@ -70,7 +79,7 @@ const Parentsmanagement = () => {
     });
 
     return position === null ? null : (
-      <Marker position={position}>
+      <Marker icon={locationicon} position={position}>
         {/* Additional marker customization, if needed */}
       </Marker>
     );
@@ -142,7 +151,7 @@ const Parentsmanagement = () => {
         <div className="flex flex-col items-center">
           <p className="text-black font-semibold">SPECIFY THE PARENT ADDRESS</p>
           <input
-          value={address}
+            value={address}
             onChange={(e) => {
               setAddressdesc(e.target.value);
             }}
@@ -157,8 +166,8 @@ const Parentsmanagement = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <LocationMarker />
-              <GeocoderControl/>
-              <Marker position={position}></Marker>
+              <GeocoderControl />
+              <Marker icon={locationicon} position={position}></Marker>
             </MapContainer>
           </div>
         </div>
